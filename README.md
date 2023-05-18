@@ -1,4 +1,4 @@
-# Analyzing-the-COVID-19-situation-in-Japan
+<h1 align="center"> Analyzing the COVID-19 situation in Japan </h1>
 
 ```python
 import pandas as pd
