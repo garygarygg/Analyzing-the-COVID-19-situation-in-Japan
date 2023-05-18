@@ -86,6 +86,7 @@ j.add_points_from_xy(cumulative_data, x="Y", y="X",
                     marker_colors = ['blue', 'red'])
                     
 ```
+[Map of cumulative number of Japan COVID-19 cases per prefecture](https://garygarygg.glitch.me/jmap.html)
 
 ### Project Goal:
 To analyze the COVID-19 situation in Japan and identify key trends and insights using publicly available data, focusing on nonlinear regression and geographical analysis.
