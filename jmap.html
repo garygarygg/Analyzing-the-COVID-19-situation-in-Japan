@@ -1,0 +1,1599 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_fc47d342d92922427e4fa387053ca8a4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/ljagis/leaflet-measure@2.1.7/dist/leaflet-measure.min.css"/>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css"/>
+    
+                    <style>
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+                    <h3 align=center style="font-size:20px"><b>Cumulative number of COVID-19 cases per prefecture</b></h3>
+                    
+    
+            <div class="folium-map" id="map_fc47d342d92922427e4fa387053ca8a4" ></div>
+        
+    
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Draggable - Default functionality</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <script>
+  $( function() {
+    $( "#maplegend" ).draggable({
+                    start: function (event, ui) {
+                        $(this).css({
+                            right: "auto",
+                            top: "auto",
+                            bottom: "auto"
+                        });
+                    }
+                });
+});
+
+  </script>
+</head>
+<body>
+
+
+<div id='maplegend' class='maplegend'
+    style='position: absolute; z-index:9999; border:2px solid grey; background-color:rgba(255, 255, 255, 0.8);
+     border-radius:6px; padding: 10px; font-size:14px; right: 20px; bottom: 20px;'>
+
+<div class='legend-title'>Incidence Rate</div>
+<div class='legend-scale'>
+  <ul class='legend-labels'>
+    <li><span style='background:#ff0000;opacity:1.0;'></span>High-prevalence area</li>
+    <li><span style='background:#0000ff;opacity:1.0;'></span>Low-prevalence area</li>
+  </ul>
+</div>
+</div>
+
+</body>
+</html>
+
+<style type='text/css'>
+  .maplegend .legend-title {
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 90%;
+    }
+  .maplegend .legend-scale ul {
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 0;
+    float: left;
+    list-style: none;
+    }
+  .maplegend .legend-scale ul li {
+    font-size: 80%;
+    list-style: none;
+    margin-left: 0;
+    line-height: 18px;
+    margin-bottom: 2px;
+    }
+  .maplegend ul.legend-labels li span {
+    display: block;
+    float: left;
+    height: 16px;
+    width: 30px;
+    margin-right: 5px;
+    margin-left: 0;
+    border: 1px solid #999;
+    }
+  .maplegend .legend-source {
+    font-size: 80%;
+    color: #777;
+    clear: both;
+    }
+  .maplegend a {
+    color: #777;
+    }
+</style>
+
+</body>
+<script>
+    
+    
+            var map_fc47d342d92922427e4fa387053ca8a4 = L.map(
+                "map_fc47d342d92922427e4fa387053ca8a4",
+                {
+                    center: [35.6895, 139.6917],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 5,
+                    zoomControl: true,
+                    preferCanvas: false,
+                    drawExport: false,
+                    layersControl: true,
+                }
+            );
+            L.control.scale().addTo(map_fc47d342d92922427e4fa387053ca8a4);
+
+            
+
+        
+    
+            var tile_layer_5ec650d75957ce080e26dc47cc305618 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 24, "maxZoom": 24, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_fc47d342d92922427e4fa387053ca8a4);
+        
+    
+            L.control.fullscreen(
+                {"forceSeparateButton": false, "position": "topleft", "title": "Full Screen", "titleCancel": "Exit Full Screen"}
+            ).addTo(map_fc47d342d92922427e4fa387053ca8a4);
+        
+    
+            var options = {
+              position: "topleft",
+              draw: {},
+              edit: {},
+            }
+            // FeatureGroup is to store editable layers.
+            var drawnItems = new L.featureGroup().addTo(
+                map_fc47d342d92922427e4fa387053ca8a4
+            );
+            options.edit.featureGroup = drawnItems;
+            var draw_control_7b78e0909d72395b02a3ae7e3f962f0b = new L.Control.Draw(
+                options
+            ).addTo( map_fc47d342d92922427e4fa387053ca8a4 );
+            map_fc47d342d92922427e4fa387053ca8a4.on(L.Draw.Event.CREATED, function(e) {
+                var layer = e.layer,
+                    type = e.layerType;
+                var coords = JSON.stringify(layer.toGeoJSON());
+                layer.on('click', function() {
+                    alert(coords);
+                    console.log(coords);
+                });
+                drawnItems.addLayer(layer);
+             });
+            map_fc47d342d92922427e4fa387053ca8a4.on('draw:created', function(e) {
+                drawnItems.addLayer(e.layer);
+            });
+            
+        
+    
+            var measure_control_c0be135407aeafbf18697a188d2013e0 = new L.Control.Measure(
+                {"position": "bottomleft", "primaryAreaUnit": "sqmeters", "primaryLengthUnit": "meters", "secondaryAreaUnit": "acres", "secondaryLengthUnit": "miles"});
+            map_fc47d342d92922427e4fa387053ca8a4.addControl(measure_control_c0be135407aeafbf18697a188d2013e0);
+
+        
+    
+            L.Control.geocoder(
+                {"collapsed": true, "defaultMarkGeocode": true, "position": "topleft"}
+            ).on('markgeocode', function(e) {
+                map_fc47d342d92922427e4fa387053ca8a4.setView(e.geocode.center, 11);
+            }).addTo(map_fc47d342d92922427e4fa387053ca8a4);
+
+        
+    
+            map_fc47d342d92922427e4fa387053ca8a4.fitBounds(
+                [[35.6895, 139.6917], [35.6895, 139.6917]],
+                {"maxZoom": 5}
+            );
+        
+    
+        function geo_json_1b5be374d95ff8b2cfd54af584d00794_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#3388ff", "fillOpacity": 0, "opacity": 1, "weight": 2};
+            }
+        }
+        function geo_json_1b5be374d95ff8b2cfd54af584d00794_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {"fillOpacity": 0, "weight": 4};
+            }
+        }
+
+        function geo_json_1b5be374d95ff8b2cfd54af584d00794_onEachFeature(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        geo_json_1b5be374d95ff8b2cfd54af584d00794.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        const highlightStyle = geo_json_1b5be374d95ff8b2cfd54af584d00794_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_1b5be374d95ff8b2cfd54af584d00794 = L.geoJson(null, {
+                onEachFeature: geo_json_1b5be374d95ff8b2cfd54af584d00794_onEachFeature,
+            
+                style: geo_json_1b5be374d95ff8b2cfd54af584d00794_styler,
+        });
+
+        function geo_json_1b5be374d95ff8b2cfd54af584d00794_add (data) {
+            geo_json_1b5be374d95ff8b2cfd54af584d00794
+                .addData(data)
+                .addTo(map_fc47d342d92922427e4fa387053ca8a4);
+        }
+            geo_json_1b5be374d95ff8b2cfd54af584d00794_add({"features": [{"bbox": [127.036102, 25.899503, 130.418985, 28.903119], "geometry": {"coordinates": [[[127.036102, 26.136453], [127.651171, 25.899503], [128.156407, 26.116726], [128.046573, 26.471311], [128.485909, 26.726723], [129.628181, 28.169602], [130.001616, 27.859233], [130.418985, 28.247054], [130.045549, 28.63347], [129.913749, 28.903119], [128.859344, 28.38246], [128.441975, 27.606401], [128.090507, 26.942394], [127.708004, 26.66728], [127.554237, 26.382213], [127.224735, 26.396975], [127.036102, 26.136453]]], "type": "Polygon"}, "id": "0", "properties": {"CONTINENT": "Asia", "COUNTRY": "Japan", "POPULATION EST": "126,451,398"}, "type": "Feature"}, {"bbox": [128.611571, 28.565587, 131.357418, 30.977962], "geometry": {"coordinates": [[[128.699438, 28.565587], [129.160741, 28.613821], [129.281558, 28.902758], [129.731877, 29.267592], [130.313996, 30.050433], [130.753332, 30.031412], [130.830215, 30.20247], [131.148733, 30.20247], [131.357418, 30.798828], [131.1048, 30.977962], [130.138262, 30.439557], [130.138262, 30.67607], [129.819744, 30.439557], [129.973511, 30.240442], [129.215658, 30.069451], [129.182707, 29.58337], [129.336475, 29.420819], [128.930089, 29.3155], [128.908123, 29.008501], [128.611571, 28.921992], [128.699438, 28.565587]]], "type": "Polygon"}, "id": "1", "properties": {"CONTINENT": "Asia", "COUNTRY": "Japan", "POPULATION EST": "126,451,398"}, "type": "Feature"}, {"bbox": [129.40846316947255, 31.029579169228246, 145.5431372418027, 45.55148346616134], "geometry": {"coordinates": [[[[141.88460086483497, 39.180864569651476], [140.95948937394581, 38.17400096287662], [140.97638756730527, 37.14207428644019], [140.5997697287621, 36.3439834661245], [140.77407433488258, 35.842877102190215], [140.2532792502451, 35.138113918593646], [138.9755277853962, 34.66760000257614], [137.21759891169125, 34.60628591566183], [135.79298302626893, 33.46480520276663], [135.1209827007454, 33.849071153289], [135.0794348491827, 34.596544908174806], [133.34031619683202, 34.375938218720805], [132.15677086805124, 33.90493337659652], [130.98614464734345, 33.88576142021624], [132.00003624890996, 33.149992377244544], [131.33279015515734, 31.450354519164822], [130.686317987186, 31.029579169228246], [130.2024198752049, 31.418237616495432], [130.44767622286213, 32.319474595665696], [129.81469160371893, 32.61030955660436], [129.40846316947255, 33.29605581311752], [130.35393517468464, 33.60415070244167], [130.87845096244718, 34.23274282484002], [131.8842293641439, 34.74971385348792], [132.61767296766243, 35.433393052709405], [134.6083008159777, 35.731617743465804], [135.67753787652885, 35.52713410088687], [136.72383060114242, 37.304984239240326], [137.39061160700447, 36.82739065199884], [138.8576021669062, 37.82748464614346], [139.42640465714283, 38.21596222589761], [140.054790073812, 39.43880748143637], [139.88337934789985, 40.56331248632368], [140.30578250545364, 41.19500519465953], [141.3689734234266, 41.378559882160275], [141.91426313697048, 39.991616115878685], [141.88460086483497, 39.180864569651476]]], [[[144.61342654843963, 43.96088288021748], [145.32082523008307, 44.38473297787541], [145.5431372418027, 43.26208832455062], [144.05966189999987, 42.98835826270056], [143.18384972551723, 41.9952147486992], [141.6114909201724, 42.6787905950561], [141.06728641170668, 41.58459381770797], [139.955106235921, 41.56955597591103], [139.81754357315998, 42.563758856774385], [140.31208703019325, 43.33327261003269], [141.38054894426, 43.38882477474644], [141.67195234595386, 44.77212535255146], [141.96764489152798, 45.55148346616134], [143.14287031470974, 44.51035838477697], [143.91016198137947, 44.17409983985374], [144.61342654843963, 43.96088288021748]]], [[[132.37117638563024, 33.46364248304006], [132.92437259331473, 34.06029857028204], [133.4929683778222, 33.94462087659667], [133.90410607313635, 34.36493113864263], [134.63842817600386, 34.149233710256354], [134.76637902235854, 33.80633474378362], [134.2034159689709, 33.20117788342964], [133.79295006727654, 33.5219851750976], [133.28026818250885, 33.28957042086489], [133.0148580262578, 32.70456736910474], [132.36311486219267, 32.989382025681394], [132.37117638563024, 33.46364248304006]]]], "type": "MultiPolygon"}, "id": "2", "properties": {"CONTINENT": "Asia", "COUNTRY": "Japan", "POPULATION EST": "126,451,398"}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+    geo_json_1b5be374d95ff8b2cfd54af584d00794.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature=>typeof(feature)=='object' ? JSON.stringify(feature) : feature;
+    let fields = ["COUNTRY", "POPULATION EST", "CONTINENT"];
+    let aliases = ["COUNTRY", "POPULATION EST", "CONTINENT"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i]}</th>
+            
+            <td>${handleObject(layer.feature.properties[v])}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{"className": "foliumtooltip", "sticky": true});
+                     
+    
+            var marker_cluster_ccaebbe99701866497aecf04e5ace809 = L.markerClusterGroup(
+                {"maxClusterRadius": 80, "spin": true}
+            );
+            map_fc47d342d92922427e4fa387053ca8a4.addLayer(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var marker_96c39697bd8056cf5357958005e42f41 = L.marker(
+                [35.498915, 134.231686],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_fef6d39a525bb97c79637204cd78811a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_96c39697bd8056cf5357958005e42f41.setIcon(icon_fef6d39a525bb97c79637204cd78811a);
+        
+    
+        var popup_f15b28c8ca273b19451a00334e9fb5e6 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_b3656de58cf523041496d7a97e8c6031 = $(`<div id="html_b3656de58cf523041496d7a97e8c6031" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Tottori<br><b>Total Number</b>: 144,182 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 35.498915<br><b>Y</b>: 134.231686<br></div>`)[0];
+                popup_f15b28c8ca273b19451a00334e9fb5e6.setContent(html_b3656de58cf523041496d7a97e8c6031);
+            
+        
+
+        marker_96c39697bd8056cf5357958005e42f41.bindPopup(popup_f15b28c8ca273b19451a00334e9fb5e6)
+        ;
+
+        
+    
+    
+            var marker_7f383f449619d5ac50886a59fa3be397 = L.marker(
+                [34.069351, 134.555904],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_b6bcb778b4533cd7c2345354907fb911 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_7f383f449619d5ac50886a59fa3be397.setIcon(icon_b6bcb778b4533cd7c2345354907fb911);
+        
+    
+        var popup_ca95f9127839a03fb2843c4706ec67f8 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_cd408359212b84260a268e178455799c = $(`<div id="html_cd408359212b84260a268e178455799c" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Tokushima<br><b>Total Number</b>: 168,198 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 34.069351<br><b>Y</b>: 134.555904<br></div>`)[0];
+                popup_ca95f9127839a03fb2843c4706ec67f8.setContent(html_cd408359212b84260a268e178455799c);
+            
+        
+
+        marker_7f383f449619d5ac50886a59fa3be397.bindPopup(popup_ca95f9127839a03fb2843c4706ec67f8)
+        ;
+
+        
+    
+    
+            var marker_1db074bc34e3499c375e3552b1ad43ba = L.marker(
+                [35.039613, 132.579358],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_ce9da633c7c550e0c9537e9383f8e3cd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_1db074bc34e3499c375e3552b1ad43ba.setIcon(icon_ce9da633c7c550e0c9537e9383f8e3cd);
+        
+    
+        var popup_bbafd00e4a401d3dc048943028774680 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_c932a4510f1160f16718a6ca6f7830a6 = $(`<div id="html_c932a4510f1160f16718a6ca6f7830a6" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Shimane<br><b>Total Number</b>: 169,941 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 35.039613<br><b>Y</b>: 132.579358<br></div>`)[0];
+                popup_bbafd00e4a401d3dc048943028774680.setContent(html_c932a4510f1160f16718a6ca6f7830a6);
+            
+        
+
+        marker_1db074bc34e3499c375e3552b1ad43ba.bindPopup(popup_bbafd00e4a401d3dc048943028774680)
+        ;
+
+        
+    
+    
+            var marker_e2345bf39d618d4b46fe9bc9ee560a0a = L.marker(
+                [33.451217, 133.292999],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_bf78fd78a9e1250e8ffc709662ad5577 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_e2345bf39d618d4b46fe9bc9ee560a0a.setIcon(icon_bf78fd78a9e1250e8ffc709662ad5577);
+        
+    
+        var popup_7cda9549d0a2480784823f8d95fd6b6e = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_0b36bab501a309c13789b9859b6bcc2e = $(`<div id="html_0b36bab501a309c13789b9859b6bcc2e" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Kochi<br><b>Total Number</b>: 170,215 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 33.451217<br><b>Y</b>: 133.292999<br></div>`)[0];
+                popup_7cda9549d0a2480784823f8d95fd6b6e.setContent(html_0b36bab501a309c13789b9859b6bcc2e);
+            
+        
+
+        marker_e2345bf39d618d4b46fe9bc9ee560a0a.bindPopup(popup_7cda9549d0a2480784823f8d95fd6b6e)
+        ;
+
+        
+    
+    
+            var marker_e1ee52c3f1d1ec930e3253c8baf8aa19 = L.marker(
+                [35.544927, 138.593569],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_48451aca49bb35bc5440e55d75871846 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_e1ee52c3f1d1ec930e3253c8baf8aa19.setIcon(icon_48451aca49bb35bc5440e55d75871846);
+        
+    
+        var popup_f85e8bcfbf63fbe84957247ffc06e3cd = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_c5c1e81255d76262fddbce9f91fd1c4d = $(`<div id="html_c5c1e81255d76262fddbce9f91fd1c4d" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Yamanashi<br><b>Total Number</b>: 193,918 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 35.544927<br><b>Y</b>: 138.593569<br></div>`)[0];
+                popup_f85e8bcfbf63fbe84957247ffc06e3cd.setContent(html_c5c1e81255d76262fddbce9f91fd1c4d);
+            
+        
+
+        marker_e1ee52c3f1d1ec930e3253c8baf8aa19.bindPopup(popup_f85e8bcfbf63fbe84957247ffc06e3cd)
+        ;
+
+        
+    
+    
+            var marker_7b53003fca644da8d6c78e7e5197495d = L.marker(
+                [36.06068, 136.222004],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_e4d0be6c959ec9d399e06dec9e3534f7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_7b53003fca644da8d6c78e7e5197495d.setIcon(icon_e4d0be6c959ec9d399e06dec9e3534f7);
+        
+    
+        var popup_9a48f087802387d9ba399899a929074b = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_d4bff9a7aadc2954c5443daa9c6896cf = $(`<div id="html_d4bff9a7aadc2954c5443daa9c6896cf" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Fukui<br><b>Total Number</b>: 202,719 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 36.06068<br><b>Y</b>: 136.222004<br></div>`)[0];
+                popup_9a48f087802387d9ba399899a929074b.setContent(html_d4bff9a7aadc2954c5443daa9c6896cf);
+            
+        
+
+        marker_7b53003fca644da8d6c78e7e5197495d.bindPopup(popup_9a48f087802387d9ba399899a929074b)
+        ;
+
+        
+    
+    
+            var marker_8f61362b89c23843a9bdcc5b4179b52d = L.marker(
+                [39.720009, 140.10257],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_8b2bb7aca98d6061bb14988fe887971c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_8f61362b89c23843a9bdcc5b4179b52d.setIcon(icon_8b2bb7aca98d6061bb14988fe887971c);
+        
+    
+        var popup_b8bde68b6fabba47c34aff60e6e9aaf2 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_24f3f43b69b7e75ba4e39e8bd9f67537 = $(`<div id="html_24f3f43b69b7e75ba4e39e8bd9f67537" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Akita<br><b>Total Number</b>: 203,803 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 39.720009<br><b>Y</b>: 140.10257<br></div>`)[0];
+                popup_b8bde68b6fabba47c34aff60e6e9aaf2.setContent(html_24f3f43b69b7e75ba4e39e8bd9f67537);
+            
+        
+
+        marker_8f61362b89c23843a9bdcc5b4179b52d.bindPopup(popup_b8bde68b6fabba47c34aff60e6e9aaf2)
+        ;
+
+        
+    
+    
+            var marker_af0b557c2dadc4c95e0b33aa18188012 = L.marker(
+                [38.252951, 140.335951],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_12cf0e9b12a82ea829f498da59e0ea85 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_af0b557c2dadc4c95e0b33aa18188012.setIcon(icon_12cf0e9b12a82ea829f498da59e0ea85);
+        
+    
+        var popup_24575ac5ba92835bc2692b31f7c2b191 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_77680ff00f4b52cf95722bc36e1912e8 = $(`<div id="html_77680ff00f4b52cf95722bc36e1912e8" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Yamagata<br><b>Total Number</b>: 231,254 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 38.252951<br><b>Y</b>: 140.335951<br></div>`)[0];
+                popup_24575ac5ba92835bc2692b31f7c2b191.setContent(html_77680ff00f4b52cf95722bc36e1912e8);
+            
+        
+
+        marker_af0b557c2dadc4c95e0b33aa18188012.bindPopup(popup_24575ac5ba92835bc2692b31f7c2b191)
+        ;
+
+        
+    
+    
+            var marker_5220bc0713ef4a543d2530953159ec3a = L.marker(
+                [39.971422, 141.206945],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_d44378cfd6db0b159ed1ce5eeb5fb024 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_5220bc0713ef4a543d2530953159ec3a.setIcon(icon_d44378cfd6db0b159ed1ce5eeb5fb024);
+        
+    
+        var popup_e372218581a85e3a34612006d470267a = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_62aa92ecc366920f3146fda26c3cc7e7 = $(`<div id="html_62aa92ecc366920f3146fda26c3cc7e7" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Iwate<br><b>Total Number</b>: 238,133 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 39.971422<br><b>Y</b>: 141.206945<br></div>`)[0];
+                popup_e372218581a85e3a34612006d470267a.setContent(html_62aa92ecc366920f3146fda26c3cc7e7);
+            
+        
+
+        marker_5220bc0713ef4a543d2530953159ec3a.bindPopup(popup_e372218581a85e3a34612006d470267a)
+        ;
+
+        
+    
+    
+            var marker_c5fe43c1aedae82d44391dcca5bb9675 = L.marker(
+                [36.693367, 137.215195],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_fed18dab4dc87e4950e1919c343b1235 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_c5fe43c1aedae82d44391dcca5bb9675.setIcon(icon_fed18dab4dc87e4950e1919c343b1235);
+        
+    
+        var popup_69288a58b70e652c64db199dda7ad785 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_c3343e2de8f5a535a6be53581dc77915 = $(`<div id="html_c3343e2de8f5a535a6be53581dc77915" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Toyama<br><b>Total Number</b>: 240,851 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 36.693367<br><b>Y</b>: 137.215195<br></div>`)[0];
+                popup_69288a58b70e652c64db199dda7ad785.setContent(html_c3343e2de8f5a535a6be53581dc77915);
+            
+        
+
+        marker_c5fe43c1aedae82d44391dcca5bb9675.bindPopup(popup_69288a58b70e652c64db199dda7ad785)
+        ;
+
+        
+    
+    
+            var marker_716195f39004a652d3c70e7e3535adf8 = L.marker(
+                [34.23852, 135.193954],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_4a27e0e948aacf15ab80bf3c3a78c69a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_716195f39004a652d3c70e7e3535adf8.setIcon(icon_4a27e0e948aacf15ab80bf3c3a78c69a);
+        
+    
+        var popup_2ed13270cf877acdc2f1bb75e5b4dfd2 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_7688d0dd2cf039bc88eec4cfebe8a87c = $(`<div id="html_7688d0dd2cf039bc88eec4cfebe8a87c" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Wakayama<br><b>Total Number</b>: 241,522 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 34.23852<br><b>Y</b>: 135.193954<br></div>`)[0];
+                popup_2ed13270cf877acdc2f1bb75e5b4dfd2.setContent(html_7688d0dd2cf039bc88eec4cfebe8a87c);
+            
+        
+
+        marker_716195f39004a652d3c70e7e3535adf8.bindPopup(popup_2ed13270cf877acdc2f1bb75e5b4dfd2)
+        ;
+
+        
+    
+    
+            var marker_e71c59ef4f76b62df487e49349efad62 = L.marker(
+                [34.205149, 133.990958],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_653142e00a2d59ee60cac5407dd3cb9f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_e71c59ef4f76b62df487e49349efad62.setIcon(icon_653142e00a2d59ee60cac5407dd3cb9f);
+        
+    
+        var popup_c3fd6c9db426fa7fe60f01c53f992839 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_4e6ca11f78dc834a35da965634913600 = $(`<div id="html_4e6ca11f78dc834a35da965634913600" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Kagawa<br><b>Total Number</b>: 255,506 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 34.205149<br><b>Y</b>: 133.990958<br></div>`)[0];
+                popup_c3fd6c9db426fa7fe60f01c53f992839.setContent(html_4e6ca11f78dc834a35da965634913600);
+            
+        
+
+        marker_e71c59ef4f76b62df487e49349efad62.bindPopup(popup_c3fd6c9db426fa7fe60f01c53f992839)
+        ;
+
+        
+    
+    
+            var marker_9baee3a109136d2b2a9133bb20a9e62f = L.marker(
+                [33.26075, 130.063627],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_80988ecf81df0ae9dbcc4e82a2a991a8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_9baee3a109136d2b2a9133bb20a9e62f.setIcon(icon_80988ecf81df0ae9dbcc4e82a2a991a8);
+        
+    
+        var popup_ea6ae71ef78658025f20aafcc364c3be = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_33a83cb0779d3842586a1a21bc9a36ec = $(`<div id="html_33a83cb0779d3842586a1a21bc9a36ec" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Saga<br><b>Total Number</b>: 262,453 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 33.26075<br><b>Y</b>: 130.063627<br></div>`)[0];
+                popup_ea6ae71ef78658025f20aafcc364c3be.setContent(html_33a83cb0779d3842586a1a21bc9a36ec);
+            
+        
+
+        marker_9baee3a109136d2b2a9133bb20a9e62f.bindPopup(popup_ea6ae71ef78658025f20aafcc364c3be)
+        ;
+
+        
+    
+    
+            var marker_751d3469fa023ab93e427246207fae49 = L.marker(
+                [36.338549, 136.520178],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_291b019e7ca7d32a451d861fd9bee650 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_751d3469fa023ab93e427246207fae49.setIcon(icon_291b019e7ca7d32a451d861fd9bee650);
+        
+    
+        var popup_ff46f4e6eb2404fb1ffdefabc07945c8 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_ada5e0d17fb578c29486c2f614c8dc2e = $(`<div id="html_ada5e0d17fb578c29486c2f614c8dc2e" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Ishikawa<br><b>Total Number</b>: 283,158 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 36.338549<br><b>Y</b>: 136.520178<br></div>`)[0];
+                popup_ff46f4e6eb2404fb1ffdefabc07945c8.setContent(html_ada5e0d17fb578c29486c2f614c8dc2e);
+            
+        
+
+        marker_751d3469fa023ab93e427246207fae49.bindPopup(popup_ff46f4e6eb2404fb1ffdefabc07945c8)
+        ;
+
+        
+    
+    
+            var marker_8e407fdcb7977a14db87b6286f7a069f = L.marker(
+                [40.757984, 140.432846],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_266b7aa63899f5fae52d16741748489c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_8e407fdcb7977a14db87b6286f7a069f.setIcon(icon_266b7aa63899f5fae52d16741748489c);
+        
+    
+        var popup_e396be6ca7c43f63e77b103bb74d6f40 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_9aa5392c670e53db18d0af1b307065a4 = $(`<div id="html_9aa5392c670e53db18d0af1b307065a4" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Aomori<br><b>Total Number</b>: 283,655 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 40.757984<br><b>Y</b>: 140.432846<br></div>`)[0];
+                popup_e396be6ca7c43f63e77b103bb74d6f40.setContent(html_9aa5392c670e53db18d0af1b307065a4);
+            
+        
+
+        marker_8e407fdcb7977a14db87b6286f7a069f.bindPopup(popup_e396be6ca7c43f63e77b103bb74d6f40)
+        ;
+
+        
+    
+    
+            var marker_2182d69edfbc7f81c83774ac1bde38a1 = L.marker(
+                [33.181996, 131.640672],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_09b68be7f4f870e37d01c8a5dbf26492 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_2182d69edfbc7f81c83774ac1bde38a1.setIcon(icon_09b68be7f4f870e37d01c8a5dbf26492);
+        
+    
+        var popup_1ffab0bd71431e6824f043751d8a2399 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_9131accc1bfd8737f074528b23777e34 = $(`<div id="html_9131accc1bfd8737f074528b23777e34" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Oita<br><b>Total Number</b>: 305,976 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 33.181996<br><b>Y</b>: 131.640672<br></div>`)[0];
+                popup_1ffab0bd71431e6824f043751d8a2399.setContent(html_9131accc1bfd8737f074528b23777e34);
+            
+        
+
+        marker_2182d69edfbc7f81c83774ac1bde38a1.bindPopup(popup_1ffab0bd71431e6824f043751d8a2399)
+        ;
+
+        
+    
+    
+            var marker_9ababcc52f5be471ac69ad62367c1e10 = L.marker(
+                [34.175059, 131.472949],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_275cf7a22d1185f78a1bdda6e2cb033b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_9ababcc52f5be471ac69ad62367c1e10.setIcon(icon_275cf7a22d1185f78a1bdda6e2cb033b);
+        
+    
+        var popup_9f0bd0539402c682e4fea0ae95c34a98 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_475d716122bfd2d6fe15c2a7439700e3 = $(`<div id="html_475d716122bfd2d6fe15c2a7439700e3" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Yamaguchi<br><b>Total Number</b>: 317,031 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 34.175059<br><b>Y</b>: 131.472949<br></div>`)[0];
+                popup_9f0bd0539402c682e4fea0ae95c34a98.setContent(html_475d716122bfd2d6fe15c2a7439700e3);
+            
+        
+
+        marker_9ababcc52f5be471ac69ad62367c1e10.bindPopup(popup_9f0bd0539402c682e4fea0ae95c34a98)
+        ;
+
+        
+    
+    
+            var marker_f3653a081e7ee0fe22fd2284ed919f8c = L.marker(
+                [33.675753, 132.821526],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_ece7204cee8cdc7323657307e8298572 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_f3653a081e7ee0fe22fd2284ed919f8c.setIcon(icon_ece7204cee8cdc7323657307e8298572);
+        
+    
+        var popup_d1872da0267f1b74e80327fb7b43bbaa = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_483e4c036cd3c6a187a946918c2728b2 = $(`<div id="html_483e4c036cd3c6a187a946918c2728b2" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Ehime<br><b>Total Number</b>: 319,203 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 33.675753<br><b>Y</b>: 132.821526<br></div>`)[0];
+                popup_d1872da0267f1b74e80327fb7b43bbaa.setContent(html_483e4c036cd3c6a187a946918c2728b2);
+            
+        
+
+        marker_f3653a081e7ee0fe22fd2284ed919f8c.bindPopup(popup_d1872da0267f1b74e80327fb7b43bbaa)
+        ;
+
+        
+    
+    
+            var marker_1e1b37a6e3e5547a414942b17db3b64f = L.marker(
+                [32.038822, 131.36623],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_443a1a08be761435f411c12298a2d891 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_1e1b37a6e3e5547a414942b17db3b64f.setIcon(icon_443a1a08be761435f411c12298a2d891);
+        
+    
+        var popup_a16f20194b358d68aabecf9e6c523059 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_59a99e742a4eb2cda71ca486ea24923d = $(`<div id="html_59a99e742a4eb2cda71ca486ea24923d" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Miyazaki<br><b>Total Number</b>: 321,876 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 32.038822<br><b>Y</b>: 131.36623<br></div>`)[0];
+                popup_a16f20194b358d68aabecf9e6c523059.setContent(html_59a99e742a4eb2cda71ca486ea24923d);
+            
+        
+
+        marker_1e1b37a6e3e5547a414942b17db3b64f.bindPopup(popup_a16f20194b358d68aabecf9e6c523059)
+        ;
+
+        
+    
+    
+            var marker_2ef41a21a5d635bd2fa3c523894b9447 = L.marker(
+                [32.74631, 129.877308],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_2db7aa87f3c3372928c9dc1500280146 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_2ef41a21a5d635bd2fa3c523894b9447.setIcon(icon_2db7aa87f3c3372928c9dc1500280146);
+        
+    
+        var popup_3d33c936c4958df0d12414311431114a = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_3de02d3f0c40745647629c95b67ca244 = $(`<div id="html_3de02d3f0c40745647629c95b67ca244" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Nagasaki<br><b>Total Number</b>: 338,770 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 32.74631<br><b>Y</b>: 129.877308<br></div>`)[0];
+                popup_3d33c936c4958df0d12414311431114a.setContent(html_3de02d3f0c40745647629c95b67ca244);
+            
+        
+
+        marker_2ef41a21a5d635bd2fa3c523894b9447.bindPopup(popup_3d33c936c4958df0d12414311431114a)
+        ;
+
+        
+    
+    
+            var marker_669fd01f52455a18083c65321ec3f555 = L.marker(
+                [34.684574, 135.804403],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_8439d126bdfdbb9acbc4f4bfd169ac17 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_669fd01f52455a18083c65321ec3f555.setIcon(icon_8439d126bdfdbb9acbc4f4bfd169ac17);
+        
+    
+        var popup_7ff47bee32d9682f79e224ad083a05b9 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_4fe7b514f239d5d28f3b6cd6061efb89 = $(`<div id="html_4fe7b514f239d5d28f3b6cd6061efb89" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Nara<br><b>Total Number</b>: 349,642 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 34.684574<br><b>Y</b>: 135.804403<br></div>`)[0];
+                popup_7ff47bee32d9682f79e224ad083a05b9.setContent(html_4fe7b514f239d5d28f3b6cd6061efb89);
+            
+        
+
+        marker_669fd01f52455a18083c65321ec3f555.bindPopup(popup_7ff47bee32d9682f79e224ad083a05b9)
+        ;
+
+        
+    
+    
+            var marker_4878b506ea83dca93d28a6d6a6a58f85 = L.marker(
+                [35.153029, 136.165895],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_157d12f36c8fc079a28b2babcdc3de96 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_4878b506ea83dca93d28a6d6a6a58f85.setIcon(icon_157d12f36c8fc079a28b2babcdc3de96);
+        
+    
+        var popup_729a301d9e998eaee696a837d97dd507 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_0ed42f10af345e90c8a0c0434d12c939 = $(`<div id="html_0ed42f10af345e90c8a0c0434d12c939" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Shiga<br><b>Total Number</b>: 376,596 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 35.153029<br><b>Y</b>: 136.165895<br></div>`)[0];
+                popup_729a301d9e998eaee696a837d97dd507.setContent(html_0ed42f10af345e90c8a0c0434d12c939);
+            
+        
+
+        marker_4878b506ea83dca93d28a6d6a6a58f85.bindPopup(popup_729a301d9e998eaee696a837d97dd507)
+        ;
+
+        
+    
+    
+            var marker_85492ce7ab3859d64a5aac6d8dfe0aa5 = L.marker(
+                [37.050419, 140.88768],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_1561e80f1b2dacc456700ccb758c6789 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_85492ce7ab3859d64a5aac6d8dfe0aa5.setIcon(icon_1561e80f1b2dacc456700ccb758c6789);
+        
+    
+        var popup_8b553a887dfb923a6173601e04ac340d = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_f751cfd19e19bc143796a8f065c5f427 = $(`<div id="html_f751cfd19e19bc143796a8f065c5f427" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Fukushima<br><b>Total Number</b>: 410,483 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 37.050419<br><b>Y</b>: 140.88768<br></div>`)[0];
+                popup_8b553a887dfb923a6173601e04ac340d.setContent(html_f751cfd19e19bc143796a8f065c5f427);
+            
+        
+
+        marker_85492ce7ab3859d64a5aac6d8dfe0aa5.bindPopup(popup_8b553a887dfb923a6173601e04ac340d)
+        ;
+
+        
+    
+    
+            var marker_855ef5b9c06a1f22162a8babb4c70045 = L.marker(
+                [36.380584, 139.733323],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_46980e7bc6d153d7b0ba58c8141ba78f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_855ef5b9c06a1f22162a8babb4c70045.setIcon(icon_46980e7bc6d153d7b0ba58c8141ba78f);
+        
+    
+        var popup_a45c6e3c731262811acbdd02b227bd21 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_f77e1d40b0fd465f7c0a69b7646a1f7c = $(`<div id="html_f77e1d40b0fd465f7c0a69b7646a1f7c" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Tochigi<br><b>Total Number</b>: 427,988 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 36.380584<br><b>Y</b>: 139.733323<br></div>`)[0];
+                popup_a45c6e3c731262811acbdd02b227bd21.setContent(html_f77e1d40b0fd465f7c0a69b7646a1f7c);
+            
+        
+
+        marker_855ef5b9c06a1f22162a8babb4c70045.bindPopup(popup_a45c6e3c731262811acbdd02b227bd21)
+        ;
+
+        
+    
+    
+            var marker_08532c2ff707abbc0b5de0a51ee13493 = L.marker(
+                [36.385708, 139.062213],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_194869bedc5ffd8c6ea20991477129a5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_08532c2ff707abbc0b5de0a51ee13493.setIcon(icon_194869bedc5ffd8c6ea20991477129a5);
+        
+    
+        var popup_badba5236d7d0c1eaa1e0b4765fa98fc = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_16f91cac053e5d7c9f172430b912c512 = $(`<div id="html_16f91cac053e5d7c9f172430b912c512" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Gunma<br><b>Total Number</b>: 444,833 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 36.385708<br><b>Y</b>: 139.062213<br></div>`)[0];
+                popup_badba5236d7d0c1eaa1e0b4765fa98fc.setContent(html_16f91cac053e5d7c9f172430b912c512);
+            
+        
+
+        marker_08532c2ff707abbc0b5de0a51ee13493.bindPopup(popup_badba5236d7d0c1eaa1e0b4765fa98fc)
+        ;
+
+        
+    
+    
+            var marker_02fe7115d791a3f49a3c18ee4f2ba51e = L.marker(
+                [31.610324, 130.49208],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_d05fabcab1ec22c9c876954ce5046ec9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_02fe7115d791a3f49a3c18ee4f2ba51e.setIcon(icon_d05fabcab1ec22c9c876954ce5046ec9);
+        
+    
+        var popup_3f1abc17a12c0b760691d122d338b400 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_afcfabe992f6c24b43f33b33f2a58c75 = $(`<div id="html_afcfabe992f6c24b43f33b33f2a58c75" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Kagoshima<br><b>Total Number</b>: 444,973 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 31.610324<br><b>Y</b>: 130.49208<br></div>`)[0];
+                popup_3f1abc17a12c0b760691d122d338b400.setContent(html_afcfabe992f6c24b43f33b33f2a58c75);
+            
+        
+
+        marker_02fe7115d791a3f49a3c18ee4f2ba51e.bindPopup(popup_3f1abc17a12c0b760691d122d338b400)
+        ;
+
+        
+    
+    
+            var marker_7f6852a3f91b08df93138014dacb168e = L.marker(
+                [34.382359, 136.562895],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_1018dc6bd413f2c9538d8d5094d622e2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_7f6852a3f91b08df93138014dacb168e.setIcon(icon_1018dc6bd413f2c9538d8d5094d622e2);
+        
+    
+        var popup_4620e5634f4046a9a9867f26cdfa3611 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_0ab2c58a4b14e058ecc03a3a0edbe056 = $(`<div id="html_0ab2c58a4b14e058ecc03a3a0edbe056" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Mie<br><b>Total Number</b>: 464,383 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 34.382359<br><b>Y</b>: 136.562895<br></div>`)[0];
+                popup_4620e5634f4046a9a9867f26cdfa3611.setContent(html_0ab2c58a4b14e058ecc03a3a0edbe056);
+            
+        
+
+        marker_7f6852a3f91b08df93138014dacb168e.bindPopup(popup_4620e5634f4046a9a9867f26cdfa3611)
+        ;
+
+        
+    
+    
+            var marker_6671064cd87bc89d82072f362c392acd = L.marker(
+                [37.905398, 139.036371],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_60b78413aa20ebc1b4b0c2f2bcf6dced = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_6671064cd87bc89d82072f362c392acd.setIcon(icon_60b78413aa20ebc1b4b0c2f2bcf6dced);
+        
+    
+        var popup_a11caa5f7ccdaa70afec8d58ee37f91e = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_4fe15ce91e21ed417e9bc9ab38d5f249 = $(`<div id="html_4fe15ce91e21ed417e9bc9ab38d5f249" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Niigata<br><b>Total Number</b>: 466,369 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 37.905398<br><b>Y</b>: 139.036371<br></div>`)[0];
+                popup_a11caa5f7ccdaa70afec8d58ee37f91e.setContent(html_4fe15ce91e21ed417e9bc9ab38d5f249);
+            
+        
+
+        marker_6671064cd87bc89d82072f362c392acd.bindPopup(popup_a11caa5f7ccdaa70afec8d58ee37f91e)
+        ;
+
+        
+    
+    
+            var marker_0f6450b8b6156e2f0f0fcfcdf2e172cb = L.marker(
+                [36.647776, 138.201223],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_a3fb344e896c99405622c2aa65dbedbf = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_0f6450b8b6156e2f0f0fcfcdf2e172cb.setIcon(icon_a3fb344e896c99405622c2aa65dbedbf);
+        
+    
+        var popup_0007dbb38979aa2a65ae52fc6d9f0465 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_e494424c70e9c4d15c8ffcb5f3b3c66c = $(`<div id="html_e494424c70e9c4d15c8ffcb5f3b3c66c" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Nagano<br><b>Total Number</b>: 467,796 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 36.647776<br><b>Y</b>: 138.201223<br></div>`)[0];
+                popup_0007dbb38979aa2a65ae52fc6d9f0465.setContent(html_e494424c70e9c4d15c8ffcb5f3b3c66c);
+            
+        
+
+        marker_0f6450b8b6156e2f0f0fcfcdf2e172cb.bindPopup(popup_0007dbb38979aa2a65ae52fc6d9f0465)
+        ;
+
+        
+    
+    
+            var marker_c62b987de1735dd220da3bfd00ed42b2 = L.marker(
+                [34.671714, 133.916546],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_04b47dddfe69ffec0c481b072995d2c0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_c62b987de1735dd220da3bfd00ed42b2.setIcon(icon_04b47dddfe69ffec0c481b072995d2c0);
+        
+    
+        var popup_6a8362d09971ab7c34509c94f7ac4532 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_ab7c51bf665b3fa146803fccfb672aed = $(`<div id="html_ab7c51bf665b3fa146803fccfb672aed" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Okayama<br><b>Total Number</b>: 494,217 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 34.671714<br><b>Y</b>: 133.916546<br></div>`)[0];
+                popup_6a8362d09971ab7c34509c94f7ac4532.setContent(html_ab7c51bf665b3fa146803fccfb672aed);
+            
+        
+
+        marker_c62b987de1735dd220da3bfd00ed42b2.bindPopup(popup_6a8362d09971ab7c34509c94f7ac4532)
+        ;
+
+        
+    
+    
+            var marker_92d8fc1eae309254261b475c43101d37 = L.marker(
+                [32.803455, 130.694477],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_b929bbbaff772f6dcbf311f2e3ca5041 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_92d8fc1eae309254261b475c43101d37.setIcon(icon_b929bbbaff772f6dcbf311f2e3ca5041);
+        
+    
+        var popup_185833fc62f85cd82b6a9241b92db216 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_a9d90bcfefde9c81f81d3ed97322475a = $(`<div id="html_a9d90bcfefde9c81f81d3ed97322475a" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Kumamoto<br><b>Total Number</b>: 537,716 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 32.803455<br><b>Y</b>: 130.694477<br></div>`)[0];
+                popup_185833fc62f85cd82b6a9241b92db216.setContent(html_a9d90bcfefde9c81f81d3ed97322475a);
+            
+        
+
+        marker_92d8fc1eae309254261b475c43101d37.bindPopup(popup_185833fc62f85cd82b6a9241b92db216)
+        ;
+
+        
+    
+    
+            var marker_e585099e039fd127f5924bce4ad5153c = L.marker(
+                [38.268223, 140.869415],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_a80023d633bd45f2aa3544a27e57b5a4 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_e585099e039fd127f5924bce4ad5153c.setIcon(icon_a80023d633bd45f2aa3544a27e57b5a4);
+        
+    
+        var popup_7e0bc9720ee8f503b6c03f2905422cf8 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_425e44ddfdffa9536e170019c63b2dfb = $(`<div id="html_425e44ddfdffa9536e170019c63b2dfb" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Miyagi<br><b>Total Number</b>: 544,395 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 38.268223<br><b>Y</b>: 140.869415<br></div>`)[0];
+                popup_7e0bc9720ee8f503b6c03f2905422cf8.setContent(html_425e44ddfdffa9536e170019c63b2dfb);
+            
+        
+
+        marker_e585099e039fd127f5924bce4ad5153c.bindPopup(popup_7e0bc9720ee8f503b6c03f2905422cf8)
+        ;
+
+        
+    
+    
+            var marker_697760e8be08d3842bf7fa842eec20f5 = L.marker(
+                [35.420407, 136.760047],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_4e958ed2d1a33ea20418350896e57347 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_697760e8be08d3842bf7fa842eec20f5.setIcon(icon_4e958ed2d1a33ea20418350896e57347);
+        
+    
+        var popup_f6ad6c20e307c5fdd5dcd2d8da9e07dd = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_1a7247754e33b00b12f594c0bb163d56 = $(`<div id="html_1a7247754e33b00b12f594c0bb163d56" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Gifu<br><b>Total Number</b>: 548,252 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 35.420407<br><b>Y</b>: 136.760047<br></div>`)[0];
+                popup_f6ad6c20e307c5fdd5dcd2d8da9e07dd.setContent(html_1a7247754e33b00b12f594c0bb163d56);
+            
+        
+
+        marker_697760e8be08d3842bf7fa842eec20f5.bindPopup(popup_f6ad6c20e307c5fdd5dcd2d8da9e07dd)
+        ;
+
+        
+    
+    
+            var marker_cd9a78829a735034e13cd24d6b32d0dd = L.marker(
+                [26.212313, 127.679153],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_c00189511e4180a4ffda6eaf785a20a6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_cd9a78829a735034e13cd24d6b32d0dd.setIcon(icon_c00189511e4180a4ffda6eaf785a20a6);
+        
+    
+        var popup_158aeed4f62906e8d98e907815e90ef8 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_f2ef1d0905e96af2845345e3d9a32fb4 = $(`<div id="html_f2ef1d0905e96af2845345e3d9a32fb4" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Okinawa<br><b>Total Number</b>: 583,621 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 26.212313<br><b>Y</b>: 127.679153<br></div>`)[0];
+                popup_158aeed4f62906e8d98e907815e90ef8.setContent(html_f2ef1d0905e96af2845345e3d9a32fb4);
+            
+        
+
+        marker_cd9a78829a735034e13cd24d6b32d0dd.bindPopup(popup_158aeed4f62906e8d98e907815e90ef8)
+        ;
+
+        
+    
+    
+            var marker_ec16a6ec0a8e52d04638f08aa3328917 = L.marker(
+                [36.678248, 140.475048],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_71428541165de35a47eb2ec41ca8e46f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_ec16a6ec0a8e52d04638f08aa3328917.setIcon(icon_71428541165de35a47eb2ec41ca8e46f);
+        
+    
+        var popup_accb3cadb4c89c4d2389cd38d17d207b = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_51f998d199a1846c2e3c003575f1bff3 = $(`<div id="html_51f998d199a1846c2e3c003575f1bff3" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Ibaraki<br><b>Total Number</b>: 642,582 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 36.678248<br><b>Y</b>: 140.475048<br></div>`)[0];
+                popup_accb3cadb4c89c4d2389cd38d17d207b.setContent(html_51f998d199a1846c2e3c003575f1bff3);
+            
+        
+
+        marker_ec16a6ec0a8e52d04638f08aa3328917.bindPopup(popup_accb3cadb4c89c4d2389cd38d17d207b)
+        ;
+
+        
+    
+    
+            var marker_413676734410f58d430c281aaf641bb6 = L.marker(
+                [35.001094, 135.768235],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_2e52aa21f8efb271280520348974f3a9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_413676734410f58d430c281aaf641bb6.setIcon(icon_2e52aa21f8efb271280520348974f3a9);
+        
+    
+        var popup_56bad26273029b5ce47fee25170abbe0 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_6ef342b91c3b327d8985b4b717db2e6a = $(`<div id="html_6ef342b91c3b327d8985b4b717db2e6a" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Kyoto<br><b>Total Number</b>: 684,702 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 35.001094<br><b>Y</b>: 135.768235<br></div>`)[0];
+                popup_56bad26273029b5ce47fee25170abbe0.setContent(html_6ef342b91c3b327d8985b4b717db2e6a);
+            
+        
+
+        marker_413676734410f58d430c281aaf641bb6.bindPopup(popup_56bad26273029b5ce47fee25170abbe0)
+        ;
+
+        
+    
+    
+            var marker_4531df2b5f293821981bee173a5af890 = L.marker(
+                [34.390247, 132.452113],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_06e95b655b10619aaffa6c43afa013e0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_4531df2b5f293821981bee173a5af890.setIcon(icon_06e95b655b10619aaffa6c43afa013e0);
+        
+    
+        var popup_4b48a49f6523161a09e92ecddbe22e6c = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_a9199f28ffab1571649631509e57f289 = $(`<div id="html_a9199f28ffab1571649631509e57f289" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Hiroshima<br><b>Total Number</b>: 812,114 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 34.390247<br><b>Y</b>: 132.452113<br></div>`)[0];
+                popup_4b48a49f6523161a09e92ecddbe22e6c.setContent(html_a9199f28ffab1571649631509e57f289);
+            
+        
+
+        marker_4531df2b5f293821981bee173a5af890.bindPopup(popup_4b48a49f6523161a09e92ecddbe22e6c)
+        ;
+
+        
+    
+    
+            var marker_3b08e6af038ada22dbb7d94c725b7329 = L.marker(
+                [34.972017, 138.382435],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_c6bb9dfd8858275b525fd0d473b3b2ed = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_3b08e6af038ada22dbb7d94c725b7329.setIcon(icon_c6bb9dfd8858275b525fd0d473b3b2ed);
+        
+    
+        var popup_fb69194623f61a0d7a23ee9162e7ea5b = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_b93480cc04904a53923cc9c7810c08ef = $(`<div id="html_b93480cc04904a53923cc9c7810c08ef" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Shizuoka<br><b>Total Number</b>: 872,961 COVID-19 cases<br><b>Incidence Rate</b>: Low-prevalence area<br><b>X</b>: 34.972017<br><b>Y</b>: 138.382435<br></div>`)[0];
+                popup_fb69194623f61a0d7a23ee9162e7ea5b.setContent(html_b93480cc04904a53923cc9c7810c08ef);
+            
+        
+
+        marker_3b08e6af038ada22dbb7d94c725b7329.bindPopup(popup_fb69194623f61a0d7a23ee9162e7ea5b)
+        ;
+
+        
+    
+    
+            var marker_680c44ec7903199d51cbfdc0dea2db60 = L.marker(
+                [43.066666, 141.350006],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_9ab4422958b89f225e5ec84506fccf71 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_680c44ec7903199d51cbfdc0dea2db60.setIcon(icon_9ab4422958b89f225e5ec84506fccf71);
+        
+    
+        var popup_6bfa1893a9786d33491b431c4e581cd9 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_5ca3e58d250c54dc935dee095baff1c2 = $(`<div id="html_5ca3e58d250c54dc935dee095baff1c2" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Hokkaido<br><b>Total Number</b>: 1,363,154 COVID-19 cases<br><b>Incidence Rate</b>: High-prevalence area<br><b>X</b>: 43.066666<br><b>Y</b>: 141.350006<br></div>`)[0];
+                popup_6bfa1893a9786d33491b431c4e581cd9.setContent(html_5ca3e58d250c54dc935dee095baff1c2);
+            
+        
+
+        marker_680c44ec7903199d51cbfdc0dea2db60.bindPopup(popup_6bfa1893a9786d33491b431c4e581cd9)
+        ;
+
+        
+    
+    
+            var marker_29dd8e433c23d4c5a284a6b3c7df16b3 = L.marker(
+                [35.694706, 139.98262],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_134560a8164d861ffe1d6b7daa869a0b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_29dd8e433c23d4c5a284a6b3c7df16b3.setIcon(icon_134560a8164d861ffe1d6b7daa869a0b);
+        
+    
+        var popup_d1a64e0d3191bbe1464bffb7e2645a0d = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_7798485dd3a8e64be733741303e9c619 = $(`<div id="html_7798485dd3a8e64be733741303e9c619" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Chiba<br><b>Total Number</b>: 1,478,355 COVID-19 cases<br><b>Incidence Rate</b>: High-prevalence area<br><b>X</b>: 35.694706<br><b>Y</b>: 139.98262<br></div>`)[0];
+                popup_d1a64e0d3191bbe1464bffb7e2645a0d.setContent(html_7798485dd3a8e64be733741303e9c619);
+            
+        
+
+        marker_29dd8e433c23d4c5a284a6b3c7df16b3.bindPopup(popup_d1a64e0d3191bbe1464bffb7e2645a0d)
+        ;
+
+        
+    
+    
+            var marker_f3eda0072c4f58e7e568cc108b92153a = L.marker(
+                [35.078478, 134.883074],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_2b7d298fb0ba9ef67b8056a549ec5bf5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_f3eda0072c4f58e7e568cc108b92153a.setIcon(icon_2b7d298fb0ba9ef67b8056a549ec5bf5);
+        
+    
+        var popup_f2127b7bd0ce411c2ae7f07a7ce8c227 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_0a71a3c72ef3331837158f964923d3ca = $(`<div id="html_0a71a3c72ef3331837158f964923d3ca" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Hyogo<br><b>Total Number</b>: 1,478,400 COVID-19 cases<br><b>Incidence Rate</b>: High-prevalence area<br><b>X</b>: 35.078478<br><b>Y</b>: 134.883074<br></div>`)[0];
+                popup_f2127b7bd0ce411c2ae7f07a7ce8c227.setContent(html_0a71a3c72ef3331837158f964923d3ca);
+            
+        
+
+        marker_f3eda0072c4f58e7e568cc108b92153a.bindPopup(popup_f2127b7bd0ce411c2ae7f07a7ce8c227)
+        ;
+
+        
+    
+    
+            var marker_d2479405f4c51f3bd78c6962949644a2 = L.marker(
+                [33.5842, 130.398844],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_aad6e0551f52c19e807789c89c19984f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_d2479405f4c51f3bd78c6962949644a2.setIcon(icon_aad6e0551f52c19e807789c89c19984f);
+        
+    
+        var popup_60fdb46cbcc9828eb67e64e9da34a324 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_4be19be127465cd205b607d0ee7f0039 = $(`<div id="html_4be19be127465cd205b607d0ee7f0039" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Fukuoka<br><b>Total Number</b>: 1,597,034 COVID-19 cases<br><b>Incidence Rate</b>: High-prevalence area<br><b>X</b>: 33.5842<br><b>Y</b>: 130.398844<br></div>`)[0];
+                popup_60fdb46cbcc9828eb67e64e9da34a324.setContent(html_4be19be127465cd205b607d0ee7f0039);
+            
+        
+
+        marker_d2479405f4c51f3bd78c6962949644a2.bindPopup(popup_60fdb46cbcc9828eb67e64e9da34a324)
+        ;
+
+        
+    
+    
+            var marker_b505749d15775cd689b7d4fed439510d = L.marker(
+                [35.817616, 139.677887],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_7cb5387dbd709de3f4f089159c80b854 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_b505749d15775cd689b7d4fed439510d.setIcon(icon_7cb5387dbd709de3f4f089159c80b854);
+        
+    
+        var popup_e75c81a70f98fe9200f9a2fd8063acb3 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_b49bfc8cd87649555784b033bcf823bf = $(`<div id="html_b49bfc8cd87649555784b033bcf823bf" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Saitama<br><b>Total Number</b>: 1,814,950 COVID-19 cases<br><b>Incidence Rate</b>: High-prevalence area<br><b>X</b>: 35.817616<br><b>Y</b>: 139.677887<br></div>`)[0];
+                popup_e75c81a70f98fe9200f9a2fd8063acb3.setContent(html_b49bfc8cd87649555784b033bcf823bf);
+            
+        
+
+        marker_b505749d15775cd689b7d4fed439510d.bindPopup(popup_e75c81a70f98fe9200f9a2fd8063acb3)
+        ;
+
+        
+    
+    
+            var marker_a7e839590154946ef2eabb4586dc80d4 = L.marker(
+                [35.088393, 137.330877],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_aff013c305aa8f98987d07021f861096 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_a7e839590154946ef2eabb4586dc80d4.setIcon(icon_aff013c305aa8f98987d07021f861096);
+        
+    
+        var popup_6737a895cd090c78d1282d1b7dff6eda = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_46e0db4aadcabe27b8277e8061a73678 = $(`<div id="html_46e0db4aadcabe27b8277e8061a73678" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Aichi<br><b>Total Number</b>: 2,125,086 COVID-19 cases<br><b>Incidence Rate</b>: High-prevalence area<br><b>X</b>: 35.088393<br><b>Y</b>: 137.330877<br></div>`)[0];
+                popup_6737a895cd090c78d1282d1b7dff6eda.setContent(html_46e0db4aadcabe27b8277e8061a73678);
+            
+        
+
+        marker_a7e839590154946ef2eabb4586dc80d4.bindPopup(popup_6737a895cd090c78d1282d1b7dff6eda)
+        ;
+
+        
+    
+    
+            var marker_0b157b8a940a434259508d0d16c72c1e = L.marker(
+                [35.443707, 139.638031],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_6f227f2b6bd300325558e85559c747b7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_0b157b8a940a434259508d0d16c72c1e.setIcon(icon_6f227f2b6bd300325558e85559c747b7);
+        
+    
+        var popup_62f8a279c8a78c214d74a0397b103b33 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_d14e1bb009452661b9fa01129d8240b0 = $(`<div id="html_d14e1bb009452661b9fa01129d8240b0" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Kanagawa<br><b>Total Number</b>: 2,239,951 COVID-19 cases<br><b>Incidence Rate</b>: High-prevalence area<br><b>X</b>: 35.443707<br><b>Y</b>: 139.638031<br></div>`)[0];
+                popup_62f8a279c8a78c214d74a0397b103b33.setContent(html_d14e1bb009452661b9fa01129d8240b0);
+            
+        
+
+        marker_0b157b8a940a434259508d0d16c72c1e.bindPopup(popup_62f8a279c8a78c214d74a0397b103b33)
+        ;
+
+        
+    
+    
+            var marker_bfa601342b0373d258f44ff8b869605f = L.marker(
+                [34.666041, 135.497387],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_c3e87727581f75bf8ea6727fb33d039d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_bfa601342b0373d258f44ff8b869605f.setIcon(icon_c3e87727581f75bf8ea6727fb33d039d);
+        
+    
+        var popup_07052590b293adb40b12166cfe91db71 = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_1a2fbc2b7689db7ab34278300dafc9f2 = $(`<div id="html_1a2fbc2b7689db7ab34278300dafc9f2" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Osaka<br><b>Total Number</b>: 2,852,146 COVID-19 cases<br><b>Incidence Rate</b>: High-prevalence area<br><b>X</b>: 34.666041<br><b>Y</b>: 135.497387<br></div>`)[0];
+                popup_07052590b293adb40b12166cfe91db71.setContent(html_1a2fbc2b7689db7ab34278300dafc9f2);
+            
+        
+
+        marker_bfa601342b0373d258f44ff8b869605f.bindPopup(popup_07052590b293adb40b12166cfe91db71)
+        ;
+
+        
+    
+    
+            var marker_88cf463d9a34642fe00b144e19dfc54d = L.marker(
+                [35.652832, 139.839478],
+                {}
+            ).addTo(marker_cluster_ccaebbe99701866497aecf04e5ace809);
+        
+    
+            var icon_7793062c183012beea65c778ab5f075f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "ambulance", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_88cf463d9a34642fe00b144e19dfc54d.setIcon(icon_7793062c183012beea65c778ab5f075f);
+        
+    
+        var popup_4c2e6136aa72445173b3b31ed8670fce = L.popup({"maxWidth": 200, "minWidth": 100});
+
+        
+            
+                var html_0c008000335e9441859952250517f234 = $(`<div id="html_0c008000335e9441859952250517f234" style="width: 100.0%; height: 100.0%;"><b>Prefecture</b>: Tokyo<br><b>Total Number</b>: 4,388,360 COVID-19 cases<br><b>Incidence Rate</b>: High-prevalence area<br><b>X</b>: 35.652832<br><b>Y</b>: 139.839478<br></div>`)[0];
+                popup_4c2e6136aa72445173b3b31ed8670fce.setContent(html_0c008000335e9441859952250517f234);
+            
+        
+
+        marker_88cf463d9a34642fe00b144e19dfc54d.bindPopup(popup_4c2e6136aa72445173b3b31ed8670fce)
+        ;
+
+        
+    
+    
+            var layer_control_242757aefc239a498b65c4514d74d779 = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_5ec650d75957ce080e26dc47cc305618,
+                },
+                overlays :  {
+                    "Untitled" : geo_json_1b5be374d95ff8b2cfd54af584d00794,
+                    "Marker Cluster" : marker_cluster_ccaebbe99701866497aecf04e5ace809,
+                },
+            };
+            L.control.layers(
+                layer_control_242757aefc239a498b65c4514d74d779.base_layers,
+                layer_control_242757aefc239a498b65c4514d74d779.overlays,
+                {"autoZIndex": true, "collapsed": true, "position": "topright"}
+            ).addTo(map_fc47d342d92922427e4fa387053ca8a4);
+        
+</script>
+</html>
