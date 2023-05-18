@@ -39,7 +39,7 @@ plt.show()
 ```
 ![Trend in the number of newly confirmed cases (daily)](images/covid_data.png)
 
-```
+```python
 death_data = pd.read_csv("deathdata.csv")
 death_data['Date'] = pd.to_datetime(death_data['Date'])
 death_data = death_data[['Date', 'ALL']]
@@ -67,7 +67,7 @@ plt.show()
 ```
 ![Trends in the number of Deaths](images/death_data.png)
 
-```
+```python
 import leafmap.foliumap as leafmap
 
 j = leafmap.Map(center=[35.6895, 139.6917], zoom=5)
@@ -103,9 +103,13 @@ In terms of visual geographical analysis, cumulative numbers for confirmed COVID
 
 ### Analysis and conclusion:
 What we can see from the chart for the infection rate is that, between 2021 and 2023 - during the colder months, mostly January and February - it had spiked, before slowly tapering off into March and April. Another spike can be seen in August and September, consistently from 2020 to 2022.
+
 We can also see that the infection rate from 2022 onwards was mostly always above 20,000 cases; whereas in 2021, outside of the abovementioned spike period, it never rose above 10,000 cases.
+
 With regards to the death rate, as per the chart, a daily count exceeding 500 was only observed once. In addition, we can see similar patterns when compared to the daily infection rate i.e., spikes in January and February as well as August and September. 
+
 Another aspect to note is that we can see a spike in the death - and to a lesser extent, the infection rate - for May and June 2021, but this pattern is not necessarily observed again for May and June 2022 relative to other periods during the year.
+
 When reflecting on the above data, we can see similarities in the timings of the spikes for both the infection and death rates, signifying a strong correlation. Because the spikes for both had been happening congruently during the same periods over the years, the data suggests that ultimately, the higher number of infected individuals, the higher the death count. This can be significant to note because what the data does not suggest, are scenarios whereby people are infected and then die after significant time had elapsed, meaning COVID-19 related deaths had mostly occurred within one month of confirmation of COVID-19. Indeed, when exploring further, data from other findings indicated that the median time it takes from the first symptoms of COVID-19 to death was roughly 18 days. [^2] [^3] 
 
 As per the Japan map data, prefectures with the highest cumulative numbers were those with higher urban density e.g., Tokyo and prefectures surrounding Tokyo; as well the prefecture in the colder region of the country i.e., Hokkaido prefecture. We can see that the map data supports this, with such prefectures categorized as high-prevalence areas (the condition for a high-prevalence area is 1,000,000 or more cumulative numbers).
